@@ -1,0 +1,10 @@
+reset
+# unset xtics
+set xrange [-1:3]
+set format x ""
+
+set style fill solid
+set boxwidth 0.2
+
+plot 'test.dat' using 2:4:3:7:6:xtic(1) with candlesticks whiskerbars 0.5
+pause -1
