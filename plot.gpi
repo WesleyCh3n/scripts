@@ -1,0 +1,27 @@
+set datafile separator ','
+set title 'Example plot'
+set xtics 10
+set key title 'legend'
+plot [0:100][:]'dummy_02.csv' using 1:2 title 'Data Y' with line, \
+'dummy_02.csv' using 2:3 title 'Data Z' with points
+pause -1
+
+reset
+set datafile separator ','
+set lmargin 10
+set xtics rotate by 30 right
+plot 'dummy_03.csv' using 2:xtic(1) title 'Data Y' with line
+pause -1
+
+reset
+set datafile separator ','
+set ytics nomirror
+set ylabel 'Data Y'
+set xtics rotate by 30 right
+set y2tics nomirror
+set y2label 'Data Z'
+set style fill solid border -1
+set key box opaque
+plot 'dummy_04.csv' using 2:xtic(1) axis x1y1 title 'Data Y' with histogram, \
+'dummy_04.csv' using 3:xtic(1) axis x1y2 title 'Data Z' with line
+pause -1
